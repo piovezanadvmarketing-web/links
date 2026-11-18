@@ -7,45 +7,173 @@
 <meta name="description" content="Canais oficiais da Piovezan Advogados: WhatsApp, telefone, site e redes.">
 <meta name="robots" content="noindex">
 <meta name="referrer" content="no-referrer">
+<meta name="theme-color" content="#ECE6D8">
+<link rel="icon" href="imagens/simbolo-piovezan.svg" type="image/svg+xml">
+<link rel="preload" href="fontes/poppins-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fontes/poppins-600.woff2" as="font" type="font/woff2" crossorigin>
 <style>
-  :root{--tinta:#1C1B18;--tinta-2:#414039;--vermelho:#A41815;--papel:#F7F4EC;--creme:#E8E2D0;--alerta:#F7EDD8}
+  @font-face{font-family:"Poppins";src:url("fontes/poppins-400.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+  @font-face{font-family:"Poppins";src:url("fontes/poppins-500.woff2") format("woff2");font-weight:500;font-style:normal;font-display:swap}
+  @font-face{font-family:"Poppins";src:url("fontes/poppins-600.woff2") format("woff2");font-weight:600;font-style:normal;font-display:swap}
+
+  :root{
+    --fundo:#ECE6D8;--papel:#FFFEFA;--superficie:#FFFFFF;--realce:#F6F2EA;
+    --borda:#E0D8C7;--borda-forte:#C6BBA5;
+    --tinta:#1C1B18;--texto-2:#33312C;--texto-3:#57524A;
+    --vermelho:#A41815;--vermelho-hover:#87130F;--sobre-vermelho:#FFFEFA;
+    --aviso-fundo:#FBF1DC;--aviso-borda:#E9D3A6;--aviso-texto:#5C3B00;
+    --r-p:12px;--r-m:16px;--r-g:22px;
+    --sombra-caixa:0 1px 2px rgba(28,27,24,.07),0 6px 16px rgba(28,27,24,.09),0 16px 32px -8px rgba(28,27,24,.12);
+    --sombra-card:inset 0 1px 0 rgba(255,255,255,.9),0 1px 2px rgba(28,27,24,.08),0 6px 14px rgba(28,27,24,.10),0 14px 28px -10px rgba(28,27,24,.12);
+    --sombra-btn:0 1px 2px rgba(28,27,24,.08),0 4px 10px -2px rgba(28,27,24,.10);
+    --sombra-btn-principal:inset 0 1px 0 rgba(255,255,255,.18),0 1px 2px rgba(164,24,21,.30),0 6px 14px -4px rgba(110,16,14,.30),0 14px 24px -12px rgba(28,27,24,.30);
+    --sombra-painel-mestre:0 1px 3px rgba(28,27,24,.08),0 12px 32px rgba(28,27,24,.11),0 32px 64px -16px rgba(28,27,24,.16);
+  }
   *{box-sizing:border-box}
-  html{font-size:18px}
-  body{margin:0;min-height:100vh;background:linear-gradient(176deg,#FCFAF4 0%,var(--papel) 55%,var(--creme) 100%);color:var(--tinta);
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.5}
-  main{max-width:480px;margin:0 auto;padding:40px 20px 32px}
-  .logo{display:block;width:240px;max-width:80%;height:auto;margin:8px auto 18px}
-  .lema{text-align:center;font-size:1.05rem;color:var(--tinta-2);margin:0 0 28px}
-  .btn{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:60px;margin:0 0 14px;padding:14px 18px;border-radius:14px;
-    text-decoration:none;font-weight:600;font-size:1.1rem;text-align:center;border:2px solid var(--tinta);color:var(--tinta);background:#FFFDF8}
-  .btn:focus-visible{outline:3px solid var(--vermelho);outline-offset:3px}
-  .btn.principal{background:var(--vermelho);border-color:var(--vermelho);color:#FFFDF8}
-  .btn small{display:block;font-weight:400;font-size:.95rem;overflow-wrap:anywhere}
-  .grupo{margin-top:26px}
-  .grupo h2{font-size:1rem;letter-spacing:.06em;text-transform:uppercase;color:var(--tinta-2);margin:0 0 12px;text-align:center}
-  .aviso{margin:26px 0 0;padding:16px 18px;border-left:6px solid var(--vermelho);background:var(--alerta);border-radius:8px;font-size:1.05rem}
-  .aviso strong{color:var(--vermelho)}
-  footer{text-align:center;color:var(--tinta-2);font-size:1rem;margin-top:30px}
+  html{font-size:18px;-webkit-text-size-adjust:100%}
+  body{margin:0;min-height:100vh;background:var(--fundo);color:var(--tinta);
+    font-family:"Poppins",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.5;
+    -webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  a:focus-visible{outline:3px solid var(--tinta);outline-offset:3px}
+
+  /* O cartão do escritório: uma folha de papel sobre a mesa */
+  .folha{max-width:520px;margin:0 auto;padding:16px 16px 28px;background:var(--papel);min-height:100vh}
+
+  /* Topo: a sala de reunião, com o símbolo pousado na borda */
+  .capa{position:relative;margin:0 0 20px;padding-bottom:44px}
+  .capa .foto{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;object-position:42% 50%;
+    border-radius:var(--r-g);box-shadow:var(--sombra-caixa);background:#2b2925}
+  /* A placa da recepção: a logo oficial numa plaquinha pousada sobre a foto */
+  .placa{position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:min(300px,80%);margin:0;padding:20px 24px;
+    background:var(--superficie);border-radius:18px;border:1px solid var(--borda);box-shadow:var(--sombra-card)}
+  .placa img{display:block;width:100%;height:auto}
+
+  .marca{text-align:center;margin:0 0 26px}
+  .marca h1{margin:0}
+  .lema{margin:0 auto;max-width:25em;text-wrap:balance;font-size:1rem;line-height:1.55;color:var(--texto-3)}
+
+  /* Ações principais */
+  .acoes{display:grid;gap:12px;margin:0 0 30px}
+  .btn{display:flex;align-items:center;gap:14px;min-height:72px;padding:12px 18px 12px 14px;border-radius:var(--r-m);
+    text-decoration:none;border:1px solid var(--borda-forte);background:var(--superficie);color:var(--tinta);box-shadow:var(--sombra-btn);
+    transition:transform 140ms ease,box-shadow 140ms ease,background-color 140ms ease}
+  .btn .ic{flex:none;display:grid;place-items:center;width:46px;height:46px;border-radius:12px;background:var(--realce);color:var(--tinta)}
+  .btn .ic svg{width:24px;height:24px}
+  .btn .txt{display:flex;flex-direction:column;min-width:0;flex:1}
+  .btn .rot{font-weight:600;font-size:1.06rem;line-height:1.3}
+  .btn .sub{font-size:.95rem;line-height:1.35;color:var(--texto-3);font-variant-numeric:tabular-nums}
+  .btn .seta{flex:none;width:20px;height:20px;color:var(--texto-3)}
+  .btn:active{transform:translateY(1px)}
+
+  .btn--principal{min-height:84px;background:var(--vermelho);border-color:var(--vermelho);color:var(--sobre-vermelho);box-shadow:var(--sombra-btn-principal)}
+  .btn--principal .ic{background:rgba(255,254,250,.16);color:var(--sobre-vermelho);box-shadow:inset 0 0 0 1px rgba(255,254,250,.22)}
+  .btn--principal .rot{font-size:1.17rem}
+  .btn--principal .sub,.btn--principal .seta{color:rgba(255,254,250,.92)}
+  @media (hover:hover) and (pointer:fine){
+    .btn:hover{box-shadow:0 2px 4px rgba(28,27,24,.08),0 10px 22px -4px rgba(28,27,24,.14)}
+    .btn--principal:hover{background:var(--vermelho-hover);border-color:var(--vermelho-hover)}
+    .lista a:hover{background:var(--realce)}
+  }
+
+  /* Lista elegante: outros canais */
+  .grupo{margin:0 0 26px}
+  .grupo h2{margin:0 4px 10px;font-size:.89rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--texto-3)}
+  .lista{margin:0;padding:0;list-style:none;background:var(--superficie);border:1px solid var(--borda);border-radius:var(--r-g);
+    box-shadow:var(--sombra-card);overflow:hidden}
+  .lista li+li{border-top:1px solid var(--borda)}
+  .lista a{display:flex;align-items:center;gap:14px;min-height:64px;padding:10px 16px 10px 14px;text-decoration:none;transition:background-color 140ms ease}
+  .lista .ic{flex:none;display:grid;place-items:center;width:40px;height:40px;border-radius:11px;background:var(--realce);color:var(--tinta)}
+  .lista .ic svg{width:22px;height:22px}
+  .lista .txt{display:flex;flex-direction:column;min-width:0;flex:1}
+  .lista .rot{font-weight:500;font-size:1rem;line-height:1.3}
+  .lista .sub{font-size:.89rem;line-height:1.35;color:var(--texto-3);overflow-wrap:break-word}
+  .lista .seta{flex:none;width:18px;height:18px;color:var(--texto-3)}
+
+  /* Aviso de golpe: visível e calmo */
+  .aviso{display:flex;gap:14px;align-items:flex-start;margin:4px 0 28px;padding:18px 18px 18px 16px;border-radius:var(--r-g);
+    background:var(--aviso-fundo);border:1px solid var(--aviso-borda);box-shadow:var(--sombra-btn);color:var(--aviso-texto)}
+  .aviso .ic{flex:none;display:grid;place-items:center;width:42px;height:42px;border-radius:12px;background:rgba(255,255,255,.7);color:var(--aviso-texto);
+    box-shadow:inset 0 0 0 1px var(--aviso-borda)}
+  .aviso .ic svg{width:22px;height:22px}
+  .aviso p{margin:0;font-size:1rem;line-height:1.55}
+  .aviso strong{display:block;font-weight:600;color:var(--tinta);font-size:1.06rem;margin-bottom:2px}
+
+  footer{text-align:center;color:var(--texto-3);font-size:.89rem;padding-top:18px;border-top:1px solid var(--borda)}
+
+  @media (min-width:600px){
+    .capa .foto{aspect-ratio:5/3}
+    body{padding:40px 24px}
+    .folha{min-height:0;padding:20px 28px 32px;border-radius:28px;border:1px solid var(--borda);box-shadow:var(--sombra-painel-mestre)}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>
 <body>
-<main>
-  <img class="logo" src="logo.svg" alt="Piovezan Advogados" width="240" height="44">
-  <p class="lema">Defesa de servidores públicos federais: ativos, aposentados, pensionistas e herdeiros.</p>
-
-  <a class="btn principal" href="https://wa.me/5531972495185?text=Ol%C3%A1%2C%20vim%20pelo%20Instagram%20e%20gostaria%20de%20atendimento.">Falar no WhatsApp<small>(31) 97249-5185</small></a>
-  <a class="btn" href="tel:+553125105430">Ligar para o escritório<small>(31) 2510-5430</small></a>
-  <a class="btn" href="https://piovezanadvogados.adv.br/">Site da Piovezan</a>
-  <a class="btn" href="mailto:contato@piovezanadvogados.adv.br">E-mail<small>contato@piovezanadvogados.adv.br</small></a>
-
-  <div class="grupo">
-    <h2>Redes</h2>
-    <a class="btn" href="https://www.youtube.com/@PiovezanAdvogados">YouTube</a>
-    <a class="btn" href="https://www.facebook.com/piovezanadvogados">Facebook</a>
-    <a class="btn" href="https://www.linkedin.com/company/piovezan-advogados/">LinkedIn</a>
+<main class="folha">
+  <div class="capa">
+    <img class="foto" src="imagens/escritorio.jpg" alt="Sala de reunião da Piovezan Advogados, em Belo Horizonte" width="1000" height="600" fetchpriority="high">
+    <h1 class="placa"><img src="imagens/logo-piovezan-cor.svg" alt="Piovezan Advogados" width="252" height="46"></h1>
   </div>
 
-  <p class="aviso"><strong>Atenção a golpes.</strong> Atendimento só por estes números. Na dúvida, ligue no fixo (31) 2510-5430.</p>
+  <header class="marca">
+    <p class="lema">Defesa de servidores públicos federais: ativos, aposentados, pensionistas e herdeiros.</p>
+  </header>
+
+  <div class="acoes">
+    <a class="btn btn--principal" href="https://wa.me/5531972495185?text=Ol%C3%A1%2C%20vim%20pelo%20Instagram%20e%20gostaria%20de%20atendimento.">
+      <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.2 19.8l1.1-3.9A8.2 8.2 0 1 1 8.4 19z"/><path d="M9.1 8.4c.2-.5.5-.6.8-.6h.5c.2 0 .4.1.5.4l.7 1.6c.1.2 0 .5-.1.6l-.5.6c-.1.2-.1.4 0 .6.6 1 1.4 1.8 2.5 2.4.2.1.4.1.6-.1l.6-.6c.2-.2.4-.2.6-.1l1.6.7c.3.1.4.3.4.5v.5c0 .4-.2.7-.7.9-.8.4-1.9.4-3-.1a9.2 9.2 0 0 1-4.6-4.6c-.5-1.1-.5-2.1-.3-2.6z" fill="currentColor" stroke="none"/></svg></span>
+      <span class="txt"><span class="rot">Falar no WhatsApp</span><span class="sub">(31) 97249-5185</span></span>
+      <svg class="seta" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.5 4.5L13 10l-5.5 5.5"/></svg>
+    </a>
+    <a class="btn" href="tel:+553125105430">
+      <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.6 3.5h2.6l1.4 4-2 1.4a11.5 11.5 0 0 0 6.5 6.5l1.4-2 4 1.4v2.6a2 2 0 0 1-2.2 2A16.6 16.6 0 0 1 4.6 5.7a2 2 0 0 1 2-2.2z"/></svg></span>
+      <span class="txt"><span class="rot">Ligar para o escritório</span><span class="sub">(31) 2510-5430</span></span>
+      <svg class="seta" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.5 4.5L13 10l-5.5 5.5"/></svg>
+    </a>
+  </div>
+
+  <section class="grupo" aria-labelledby="t-canais">
+    <h2 id="t-canais">Outros canais</h2>
+    <ul class="lista">
+      <li><a href="https://piovezanadvogados.adv.br/">
+        <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.3 2.4 3.4 5.2 3.4 8.5S14.3 18.1 12 20.5M12 3.5C9.7 5.9 8.6 8.7 8.6 12s1.1 6.1 3.4 8.5"/></svg></span>
+        <span class="txt"><span class="rot">Site da Piovezan</span><span class="sub">piovezanadvogados.adv.br</span></span>
+        <svg class="seta" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.5 4.5L13 10l-5.5 5.5"/></svg>
+      </a></li>
+      <li><a href="mailto:contato@piovezanadvogados.adv.br">
+        <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5.5" width="17" height="13" rx="2.5"/><path d="M4.5 7l7.5 6 7.5-6"/></svg></span>
+        <span class="txt"><span class="rot">E-mail</span><span class="sub">contato@<wbr>piovezanadvogados.adv.br</span></span>
+        <svg class="seta" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.5 4.5L13 10l-5.5 5.5"/></svg>
+      </a></li>
+    </ul>
+  </section>
+
+  <section class="grupo" aria-labelledby="t-redes">
+    <h2 id="t-redes">Redes</h2>
+    <ul class="lista">
+      <li><a href="https://www.youtube.com/@PiovezanAdvogados">
+        <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.8" y="5.5" width="18.4" height="13" rx="4"/><path d="M10.2 9.4v5.2l4.4-2.6z" fill="currentColor"/></svg></span>
+        <span class="txt"><span class="rot">YouTube</span></span>
+        <svg class="seta" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.5 4.5L13 10l-5.5 5.5"/></svg>
+      </a></li>
+      <li><a href="https://www.facebook.com/piovezanadvogados">
+        <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="4"/><path d="M15.2 8.2h-1.6a2 2 0 0 0-2 2v10.3M9.4 12.8h5.4"/></svg></span>
+        <span class="txt"><span class="rot">Facebook</span></span>
+        <svg class="seta" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.5 4.5L13 10l-5.5 5.5"/></svg>
+      </a></li>
+      <li><a href="https://www.linkedin.com/company/piovezan-advogados/">
+        <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="4"/><path d="M8.3 10.6v5.9M12 16.5v-5.9M12 13.2c0-1.6 1-2.6 2.3-2.6s2.2.9 2.2 2.6v3.3"/><circle cx="8.3" cy="7.7" r=".4" fill="currentColor"/></svg></span>
+        <span class="txt"><span class="rot">LinkedIn</span></span>
+        <svg class="seta" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.5 4.5L13 10l-5.5 5.5"/></svg>
+      </a></li>
+    </ul>
+  </section>
+
+  <aside class="aviso">
+    <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.2l7 2.6v5.4c0 4.4-2.9 8-7 9.6-4.1-1.6-7-5.2-7-9.6V5.8z"/><path d="M9 12.2l2.1 2.1 4-4.2"/></svg></span>
+    <p><strong>Atenção a golpes.</strong> Atendimento só por estes números. Na dúvida, ligue no fixo (31) 2510-5430.</p>
+  </aside>
 
   <footer>Piovezan Advogados · OAB/MG 8.506</footer>
 </main>
