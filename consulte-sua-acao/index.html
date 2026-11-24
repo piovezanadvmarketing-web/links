@@ -146,7 +146,7 @@
 
     <p class="lema">Se quiser, fale com a nossa equipe.</p>
 
-    <noscript><div class="sem-js"><a class="btn btn--principal" href="https://wa.me/5531999901557?text=Ol%C3%A1%21%20Vim%20pelo%20QR%20Code%20do%20Dr.%20Marcos%20e%20quero%20saber%20como%20est%C3%A1%20a%20minha%20a%C3%A7%C3%A3o.%20%5Borigem%3A%20qr-dr-marcos%5D"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.2 19.8l1.1-3.9A8.2 8.2 0 1 1 8.4 19z"/><path d="M9.1 8.4c.2-.5.5-.6.8-.6h.5c.2 0 .4.1.5.4l.7 1.6c.1.2 0 .5-.1.6l-.5.6c-.1.2-.1.4 0 .6.6 1 1.4 1.8 2.5 2.4.2.1.4.1.6-.1l.6-.6c.2-.2.4-.2.6-.1l1.6.7c.3.1.4.3.4.5v.5c0 .4-.2.7-.7.9-.8.4-1.9.4-3-.1a9.2 9.2 0 0 1-4.6-4.6c-.5-1.1-.5-2.1-.3-2.6z" fill="currentColor" stroke="none"/></svg></span><span class="txt"><span class="rot">Falar no WhatsApp</span><span class="sub">(31) 99990-1557</span></span><svg class="seta" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.5 4.5L13 10l-5.5 5.5"/></svg></a></div></noscript>
+    <noscript><div class="sem-js"><a class="btn btn--principal" href="https://wa.me/5531999901557?text=Ol%C3%A1%21%20Conheci%20a%20Piovezan%20no%20evento%20com%20o%20Dr.%20Marcos%20e%20quero%20saber%20como%20est%C3%A1%20a%20minha%20a%C3%A7%C3%A3o."><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.2 19.8l1.1-3.9A8.2 8.2 0 1 1 8.4 19z"/><path d="M9.1 8.4c.2-.5.5-.6.8-.6h.5c.2 0 .4.1.5.4l.7 1.6c.1.2 0 .5-.1.6l-.5.6c-.1.2-.1.4 0 .6.6 1 1.4 1.8 2.5 2.4.2.1.4.1.6-.1l.6-.6c.2-.2.4-.2.6-.1l1.6.7c.3.1.4.3.4.5v.5c0 .4-.2.7-.7.9-.8.4-1.9.4-3-.1a9.2 9.2 0 0 1-4.6-4.6c-.5-1.1-.5-2.1-.3-2.6z" fill="currentColor" stroke="none"/></svg></span><span class="txt"><span class="rot">Falar no WhatsApp</span><span class="sub">(31) 99990-1557</span></span><svg class="seta" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.5 4.5L13 10l-5.5 5.5"/></svg></a></div></noscript>
 
     <form id="form" action="https://wa.me/5531999901557" method="get" hidden>
       <label class="campo"><span>Seu nome completo</span><input name="nome" autocomplete="name" maxlength="120" required></label>
@@ -167,11 +167,10 @@
 <script>
 (function(){
   var f=document.getElementById('form'); if(!f) return; f.hidden=false;
-  var o=(new URLSearchParams(location.search).get('origem')||'').replace(/[^a-z0-9-]/gi,'').slice(0,40); var orig=(o&&o!=='qr')?o:'qr-dr-marcos';
   f.addEventListener('submit',function(e){
     e.preventDefault();
     var n=f.nome.value.trim(), t=f.tel.value.trim(), m=f.email.value.trim();
-    var txt='Olá! Vim pelo QR Code do Dr. Marcos e quero saber como está a minha ação.\nNome: '+n+'\nTelefone: '+t+(m?'\nE-mail: '+m:'')+'\n[origem: '+orig+']';
+    var txt='Olá! Conheci a Piovezan no evento com o Dr. Marcos e quero saber como está a minha ação.\nNome: '+n+'\nTelefone: '+t+(m?'\nE-mail: '+m:'');
     location.href='https://wa.me/5531999901557?text='+encodeURIComponent(txt);
   });
 })();
